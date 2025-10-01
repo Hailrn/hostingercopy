@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hostinger - Web Hosting Made Easy</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.10.2/dist/cdn.min.js" defer></script>
+    <style>
+        .icon-tweak {
+            position: relative; 
+            top: 4px;
+        }
+        .scroll-smooth {
+            scroll-behavior: smooth;
+        }
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .pricing-card {
+            transition: all 0.3s ease;
+        }
+        .pricing-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+        .feature-icon {
+            transition: transform 0.3s ease;
+        }
+        .feature-card:hover .feature-icon {
+            transform: scale(1.1) rotate(5deg);
+        }
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+        .floating {
+            animation: float 3s ease-in-out infinite;
+        }
+    </style>
+</head>
+<body class="scroll-smooth">
+    <!-- Header -->
+    <header class="fixed top-0 left-0 w-full bg-white z-50 shadow-sm" id="header">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-12 gap-4">
+                <div class="col-span-2 text-white py-6 flex items-center justify-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 147 30" class="h-8 w-auto">
+                        <g fill="#1d1e20">
+                            <path fill-rule="evenodd" d="M62.065 18.124c.31-.795.465-1.717.465-2.766s-.158-1.97-.474-2.766c-.316-.796-.75-1.465-1.3-2.007a5.346 5.346 0 0 0-1.93-1.22 6.758 6.758 0 0 0-2.352-.406 6.58 6.58 0 0 0-2.31.407 5.44 5.44 0 0 0-1.93 1.22c-.556.541-.998 1.21-1.326 2.006-.328.795-.492 1.717-.492 2.766s.159 1.971.475 2.766c.316.796.748 1.462 1.299 1.997.55.537 1.194.94 1.931 1.211a6.755 6.755 0 0 0 2.353.407c.854 0 1.653-.135 2.396-.407a5.213 5.213 0 0 0 1.922-1.21c.538-.536.963-1.202 1.273-1.998zm-8.603-1.14a5.603 5.603 0 0 1-.219-1.626c0-.589.073-1.128.22-1.618a3.71 3.71 0 0 1 .632-1.254 2.882 2.882 0 0 1 1.01-.814c.397-.194.853-.291 1.369-.291.503 0 .956.094 1.36.283.404.188.743.456 1.018.804.275.348.486.766.632 1.255.147.489.22 1.034.22 1.635 0 .6-.073 1.143-.22 1.626a3.724 3.724 0 0 1-.632 1.246 2.775 2.775 0 0 1-1.018.804c-.404.19-.857.284-1.36.284-.516 0-.972-.094-1.37-.284a2.788 2.788 0 0 1-1.01-.804 3.718 3.718 0 0 1-.632-1.246z" clip-rule="evenodd"></path>
+                            <path d="M69.417 19.388c.386 0 .705-.032.956-.097.252-.065.454-.153.606-.265a.886.886 0 0 0 .316-.398c.059-.153.088-.324.088-.512 0-.4-.188-.734-.562-.999-.374-.265-1.018-.55-1.93-.858-.399-.14-.797-.303-1.195-.486s-.755-.412-1.07-.689a3.293 3.293 0 0 1-.773-1.008c-.2-.394-.298-.874-.298-1.44s.105-1.075.315-1.53c.211-.453.51-.839.896-1.157a4.089 4.089 0 0 1 1.404-.734c.55-.17 1.17-.256 1.861-.256.82 0 1.528.089 2.125.265.596.177 1.088.372 1.474.584l-.79 2.174a7.509 7.509 0 0 0-1.132-.469c-.416-.135-.916-.203-1.501-.203-.656 0-1.127.092-1.414.274-.286.183-.43.463-.43.84 0 .224.053.413.158.565.105.154.255.292.448.416.193.123.415.236.667.335.251.1.53.204.834.31.632.236 1.182.468 1.65.698.468.23.858.498 1.168.804.31.307.541.666.693 1.079.152.413.228.913.228 1.502 0 1.143-.398 2.03-1.194 2.66-.795.631-1.995.946-3.598.946a9.454 9.454 0 0 1-2.607-.336 6.587 6.587 0 0 1-.86-.3 6.492 6.492 0 0 1-.606-.3l.772-2.192c.363.2.81.38 1.343.538.533.16 1.185.24 1.958.24zM86.275 9.242v2.351h-3.67v9.899h-2.738v-9.899h-3.67v-2.35zM89.317 21.492h2.739V9.242h-2.739zM104.315 21.492a61.74 61.74 0 0 0-2.545-4.154 42.455 42.455 0 0 0-2.915-3.871v8.025h-2.703V9.242h2.23c.385.389.813.866 1.28 1.432.469.566.945 1.17 1.432 1.812.485.642.968 1.308 1.448 1.997.48.69.93 1.352 1.352 1.988V9.242h2.721v12.25zM116.644 11.363c-1.275 0-2.197.357-2.765 1.07-.568.713-.851 1.688-.851 2.925 0 .6.07 1.146.21 1.635.141.489.352.91.632 1.264.281.353.632.628 1.054.822.421.194.912.292 1.474.292.304 0 .565-.006.782-.018a3.63 3.63 0 0 0 .57-.07v-4.26h2.739v6.062c-.328.13-.854.268-1.58.415-.726.147-1.621.222-2.686.222-.913 0-1.741-.142-2.484-.425a5.181 5.181 0 0 1-1.905-1.237c-.526-.542-.933-1.208-1.22-1.998-.287-.789-.43-1.69-.43-2.704 0-1.025.158-1.932.474-2.722.316-.79.748-1.459 1.299-2.007a5.465 5.465 0 0 1 1.94-1.245 6.625 6.625 0 0 1 2.378-.425 9.575 9.575 0 0 1 2.748.38 5.459 5.459 0 0 1 1.29.557l-.79 2.21a7.144 7.144 0 0 0-1.29-.522 5.454 5.454 0 0 0-1.589-.22zM124.321 21.492V9.242h8.216v2.316h-5.477v2.403h4.863v2.263h-4.863v2.952h5.881v2.316z"></path>
+                            <path fill-rule="evenodd" d="M144.006 10.081c-.971-.654-2.37-.98-4.196-.98-.503 0-1.074.023-1.711.07-.638.047-1.256.13-1.852.247v12.074h2.738v-4.473h1.352c.235.283.47.599.705.947a31.343 31.343 0 0 1 1.419 2.306c.228.413.455.819.678 1.22h3.061c-.21-.448-.438-.904-.684-1.37-.246-.466-.5-.913-.764-1.343a30.04 30.04 0 0 0-.799-1.238 16.894 16.894 0 0 0-.772-1.052c.738-.306 1.302-.727 1.694-1.263.393-.536.588-1.235.588-2.095 0-1.38-.486-2.395-1.457-3.05zm-4.573 1.388c.158-.011.336-.017.535-.017.878 0 1.542.126 1.993.38.451.253.676.68.676 1.281 0 .625-.222 1.067-.667 1.326-.445.26-1.182.388-2.212.388h-.773v-3.323c.141-.01.29-.023.448-.035z" clip-rule="evenodd"></path>
+                            <path d="M44.002 9.341h2.756v12.207h-2.756v-5.179h-4.627v5.179H36.62V9.34h2.755v4.668h4.627z"></path>
+                            <path fill-rule="evenodd" d="M17.817.798v8.73l7.053 4.124v-9.26zM0 .798v13.699h22.937l-6.979-3.836-9.09-.004V4.485zM17.817 26.27v-6.118l-9.16-.007c.008.041-7.095-3.897-7.095-3.897l23.308.11v13.699zM0 17.32v8.951l6.867 3.595v-8.52z" clip-rule="evenodd"></path>
+                        </g>
+                    </svg>
+                </div>
+                <div class="col-span-7 py-6 font-normal">
+                    <nav class="flex h-full items-center space-x-10">
+                        <a href="#pricing" class="text-gray-700 hover:text-blue-500 transition">Pricing</a>
+                        <div class="flex items-center cursor-pointer text-gray-700 hover:text-blue-500 transition">
+                            <span>Services</span>
+                            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 ml-1 icon-tweak" viewBox="0 0 20 20" fill="currentColor">
+                                <path fill-rule="evenodd" d="M5.23 6.21a.75.75 0 011.06.02L10 10.584l3.71-4.354a.75.75 0 111.14.976l-4.25 4a.75.75 0 01-1.14 0l-4.25-4a.75.75 0 01.02-1.06z" clip-rule="evenodd" />
+                            </svg>
+                        </div>
+                        <div class="flex items-center cursor-pointer text-gray-700 hover:text-blue-500 transition">
+                            <span>Explore</span>
+                            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 ml-1 icon-tweak" viewBox="0 0 20 20" fill="currentColor">
+                                <path fill-rule="evenodd" d="M5.23 6.21a.75.75 0 011.06.02L10 10.584l3.71-4.354a.75.75 0 111.14.976l-4.25 4a.75.75 0 01-1.14 0l-4.25-4a.75.75 0 01.02-1.06z" clip-rule="evenodd" />
+                            </svg>
+                        </div>
+                        <a href="#support" class="text-gray-700 hover:text-blue-500 transition">Support</a>
+                    </nav>
+                </div>
+                <div class="col-span-3 py-6 flex justify-center items-center space-x-8 font-semibold">
+                    <a href="#" class="flex items-center hover:text-blue-500 transition">
+                        <span>🇺🇸</span>
+                        <span class="ml-2">English</span>
+                    </a>
+                    <a href="#" class="btn border border-black hover:border-blue-500 hover:text-blue-500 rounded-md py-3 px-5 transition">My account</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Floating Button -->
+    <a href="#" class="btn bg-blue-600 rounded-full font-semibold hover:bg-blue-700 text-white px-4 py-3 flex justify-center items-center fixed bottom-6 right-6 shadow-lg transition z-50">
+        <svg viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg" fill="#ffffff" stroke="#ffffff" class="h-5 w-5 mr-2">
+                    <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                    <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round" stroke="#CCCCCC" stroke-width="3.072"></g>
+                    <g id="SVGRepo_iconCarrier">
+                        <path fill="#ffffff" d="M256 25.063c-61.584 61.583-76.97 107.77-76.97 138.562 0 30.792 46.18 46.188 76.97 46.188 30.792 0 76.97-15.396 76.97-46.188S317.583 86.647 256 25.062zM132.72 204.125c-9.21-.108-20.947 1.46-36.72 5.688 11.27 42.062 24.604 49.77 37.938 57.468C147.27 274.98 168.3 269.335 176 256c7.698-13.333 2.053-34.365-11.28-42.063-8.334-4.81-16.654-9.632-32-9.812zm246.56 0c-15.346.18-23.666 5-32 9.813-13.332 7.697-18.978 28.73-11.28 42.062 7.698 13.333 28.73 18.98 42.063 11.28 13.333-7.697 26.667-15.405 37.937-57.467-15.774-4.227-27.51-5.796-36.72-5.688zM256 240.595c-34.01 0-61.594 27.58-61.594 61.593 0 34.01 27.583 61.593 61.594 61.593 34.01 0 61.594-27.58 61.594-61.592S290.01 240.594 256 240.594zm-144.03 60.218c-5.005.098-9.887 1.353-14.47 4C70.833 320.21 38.542 356.625 16 440.75c84.125 22.54 131.833 12.77 158.5-2.625 26.667-15.396 16.896-63.083 1.5-89.75-12.75-22.084-39.923-48.04-64.03-47.563zm286.686 0c-23.76.5-50.147 25.895-62.656 47.562-15.396 26.667-25.167 74.354 1.5 89.75s74.375 25.166 158.5 2.625c-22.54-84.126-54.833-120.54-81.5-135.938-5-2.886-10.36-4.115-15.844-4zM256 394.563c-15.396 0-30.78 15.385-30.78 30.78 0 15.397-.012 30.803 30.78 61.594 30.792-30.792 30.78-46.198 30.78-61.593 0-15.396-15.384-30.78-30.78-30.78z"></path>
+                    </g>
+                </svg>
+        Ask Kodee
+    </a>
+
+    <main class="mt-20">
+        <!-- Hero Section -->
+        <section class="py-16 fade-in">
+            <div class="container mx-auto px-4">
+                <div class="grid grid-cols-12 gap-8">
+                    <div class="col-span-12 lg:col-span-5">
+                        <div class="flex flex-col justify-center h-full">
+                            <span class="text-xl font-bold mb-3">Up to <span class="text-blue-500">75%</span> off hosting + AI website builder</span>
+                            <h1 class="text-5xl font-bold mb-6 leading-tight">Bring your ideas to life online</h1>
+                            <div class="flex flex-col space-y-3 mb-6">
+                                <div class="flex items-center">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-gray-400 mr-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                                    </svg>
+                                    <span>Free domain and website migration</span>
+                                </div>
+                                <div class="flex items-center">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-gray-400 mr-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                                    </svg>
+                                    <span>Quick setup, easy to scale</span>
+                                </div>
+                                <div class="flex items-center">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-gray-400 mr-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                                    </svg>
+                                    <span>24/7 customer support</span>
+                                </div>
+                            </div>
+                            <a href="#pricing" class="btn bg-blue-600 text-white hover:bg-blue-700 rounded-md py-3 px-6 w-fit text-center font-semibold transition shadow-lg">Start Now</a>
+                            <div class="flex items-center mt-4">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2 text-gray-600" fill="currentColor" viewBox="0 0 20 20">
+                                    <path d="M9 12l-1.5-1.5L6 12l3 3 6-6-1.5-1.5L9 12z"/>
+                                </svg>
+                                <span class="text-sm">30-day money-back guarantee</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-span-12 lg:col-span-7">
+                        <img src="https://imagedelivery.net/LqiWLm-3MGbYHtFuUbcBtA/189d259c-f35e-4849-da0b-dc9a73374300/w=1280,sharpen=1" alt="Hero" class="w-full h-auto rounded-lg floating">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Trust Section -->
+        <section class="py-12 bg-gray-50 fade-in">
+            <div class="container mx-auto px-4">
+                <div class="flex flex-col md:flex-row items-center justify-center gap-8">
+                    <div class="flex items-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="h-10 w-10 mr-3">
+                            <path fill="currentColor" d="M12 1.5C6.212 1.5 1.5 6.208 1.5 12c0 5.788 4.712 10.5 10.5 10.5S22.5 17.788 22.5 12c0-5.792-4.712-10.5-10.5-10.5Z"></path>
+                        </svg>
+                        <span class="text-lg">Recommended by <span class="font-bold">WordPress.org</span></span>
+                    </div>
+                    <div class="text-center">
+                        <div class="flex items-center justify-center mb-2">
+                            <span class="text-yellow-500 text-2xl">★★★★★</span>
+                        </div>
+                        <p class="text-sm">TrustScore <strong>4.7</strong> | 52,898 reviews</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Features Section -->
+        <section class="py-20 fade-in" id="features">
+            <div class="container mx-auto px-4">
+                <h2 class="text-4xl font-bold text-center mb-4">Why Choose Hostinger?</h2>
+                <p class="text-center text-gray-600 mb-12 text-lg">Everything you need to build and grow your online presence</p>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <div class="feature-card bg-white p-8 rounded-xl shadow-lg hover:shadow-2xl transition">
+                        <div class="feature-icon bg-blue-100 w-16 h-16 rounded-full flex items-center justify-center mb-6">
+                            <svg class="w-8 h-8 text-blue-600" fill="currentColor" viewBox="0 0 20 20">
+                                <path d="M13 7H7v6h6V7z"/>
+                                <path fill-rule="evenodd" d="M7 2a1 1 0 012 0v1h2V2a1 1 0 112 0v1h2a2 2 0 012 2v2h1a1 1 0 110 2h-1v2h1a1 1 0 110 2h-1v2a2 2 0 01-2 2h-2v1a1 1 0 11-2 0v-1H9v1a1 1 0 11-2 0v-1H5a2 2 0 01-2-2v-2H2a1 1 0 110-2h1V9H2a1 1 0 010-2h1V5a2 2 0 012-2h2V2zM5 5h10v10H5V5z" clip-rule="evenodd"/>
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3">Lightning Fast</h3>
+                        <p class="text-gray-600">Load times under 1 second with our optimized servers and CDN integration.</p>
+                    </div>
+                    <div class="feature-card bg-white p-8 rounded-xl shadow-lg hover:shadow-2xl transition">
+                        <div class="feature-icon bg-green-100 w-16 h-16 rounded-full flex items-center justify-center mb-6">
+                            <svg class="w-8 h-8 text-green-600" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M2.166 4.999A11.954 11.954 0 0010 1.944 11.954 11.954 0 0017.834 5c.11.65.166 1.32.166 2.001 0 5.225-3.34 9.67-8 11.317C5.34 16.67 2 12.225 2 7c0-.682.057-1.35.166-2.001zm11.541 3.708a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3">99.9% Uptime</h3>
+                        <p class="text-gray-600">Industry-leading uptime guarantee keeps your website online 24/7.</p>
+                    </div>
+                    <div class="feature-card bg-white p-8 rounded-xl shadow-lg hover:shadow-2xl transition">
+                        <div class="feature-icon bg-purple-100 w-16 h-16 rounded-full flex items-center justify-center mb-6">
+                            <svg class="w-8 h-8 text-purple-600" fill="currentColor" viewBox="0 0 20 20">
+                                <path d="M2 5a2 2 0 012-2h7a2 2 0 012 2v4a2 2 0 01-2 2H9l-3 3v-3H4a2 2 0 01-2-2V5z"/>
+                                <path d="M15 7v2a4 4 0 01-4 4H9.828l-1.766 1.767c.28.149.599.233.938.233h2l3 3v-3h2a2 2 0 002-2V9a2 2 0 00-2-2h-1z"/>
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3">24/7 Support</h3>
+                        <p class="text-gray-600">Expert support team available around the clock to help you succeed.</p>
+                    </div>
+                    <div class="feature-card bg-white p-8 rounded-xl shadow-lg hover:shadow-2xl transition">
+                        <div class="feature-icon bg-yellow-100 w-16 h-16 rounded-full flex items-center justify-center mb-6">
+                            <svg class="w-8 h-8 text-yellow-600" fill="currentColor" viewBox="0 0 20 20">
+                                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3">Premium Features</h3>
+                        <p class="text-gray-600">Free SSL, daily backups, and advanced security included in all plans.</p>
+                    </div>
+                    <div class="feature-card bg-white p-8 rounded-xl shadow-lg hover:shadow-2xl transition">
+                        <div class="feature-icon bg-red-100 w-16 h-16 rounded-full flex items-center justify-center mb-6">
+                            <svg class="w-8 h-8 text-red-600" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M6.267 3.455a3.066 3.066 0 001.745-.723 3.066 3.066 0 013.976 0 3.066 3.066 0 001.745.723 3.066 3.066 0 012.812 2.812c.051.643.304 1.254.723 1.745a3.066 3.066 0 010 3.976 3.066 3.066 0 00-.723 1.745 3.066 3.066 0 01-2.812 2.812 3.066 3.066 0 00-1.745.723 3.066 3.066 0 01-3.976 0 3.066 3.066 0 00-1.745-.723 3.066 3.066 0 01-2.812-2.812 3.066 3.066 0 00-.723-1.745 3.066 3.066 0 010-3.976 3.066 3.066 0 00.723-1.745 3.066 3.066 0 012.812-2.812zm7.44 5.252a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3">Easy Setup</h3>
+                        <p class="text-gray-600">One-click installers for WordPress, Joomla, and 100+ other apps.</p>
+                    </div>
+                    <div class="feature-card bg-white p-8 rounded-xl shadow-lg hover:shadow-2xl transition">
+                        <div class="feature-icon bg-indigo-100 w-16 h-16 rounded-full flex items-center justify-center mb-6">
+                            <svg class="w-8 h-8 text-indigo-600" fill="currentColor" viewBox="0 0 20 20">
+                                <path d="M8.433 7.418c.155-.103.346-.196.567-.267v1.698a2.305 2.305 0 01-.567-.267C8.07 8.34 8 8.114 8 8c0-.114.07-.34.433-.582zM11 12.849v-1.698c.22.071.412.164.567.267.364.243.433.468.433.582 0 .114-.07.34-.433.582-.155.103-.346.196-.567.267z"/>
+                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-13a1 1 0 10-2 0v.092a4.535 4.535 0 00-1.676.662C6.602 6.234 6 7.009 6 8c0 .99.602 1.765 1.324 2.246.48.32 1.054.545 1.676.662v1.941c-.391-.127-.68-.317-.843-.504a1 1 0 10-1.51 1.31c.562.649 1.413 1.076 2.353 1.253V15a1 1 0 102 0v-.092a4.535 4.535 0 001.676-.662C13.398 13.766 14 12.991 14 12c0-.99-.602-1.765-1.324-2.246A4.535 4.535 0 0011 9.092V7.151c.391.127.68.317.843.504a1 1 0 101.511-1.31c-.563-.649-1.413-1.076-2.354-1.253V5z" clip-rule="evenodd"/>
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3">Money Back</h3>
+                        <p class="text-gray-600">Try risk-free with our 30-day money-back guarantee. No questions asked.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Pricing Section -->
+        <section class="py-20 bg-gradient-to-br from-blue-50 to-purple-50 fade-in" id="pricing">
+            <div class="container mx-auto px-4">
+                <h2 class="text-4xl font-bold text-center mb-4">Choose Your Perfect Plan</h2>
+                <p class="text-center text-gray-600 mb-12 text-lg">Save up to 75% on your first purchase</p>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+                    <!-- Basic Plan -->
+                    <div class="pricing-card bg-white rounded-2xl shadow-xl p-8">
+                        <div class="text-center mb-6">
+                            <h3 class="text-2xl font-bold mb-2">Basic</h3>
+                            <p class="text-gray-600 mb-4">Perfect for beginners</p>
+                            <div class="mb-4">
+                                <span class="text-gray-400 line-through text-xl">$11.99</span>
+                                <div class="text-5xl font-bold text-blue-600">$2.99</div>
+                                <span class="text-gray-600">/month</span>
+                            </div>
+                            <span class="bg-green-100 text-green-700 px-3 py-1 rounded-full text-sm font-semibold">Save 75%</span>
+                        </div>
+                        <ul class="space-y-4 mb-8">
+                            <li class="flex items-start">
+                                <svg class="w-6 h-6 text-green-500 mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                                </svg>
+                                <span>1 Website</span>
+                            </li>
+                            <li class="flex items-start">
+                                <svg class="w-6 h-6 text-green-500 mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                                </svg>
+                                <span>50 GB SSD Storage</span>
+                            </li>
+                            <li class="flex items-start">
+                                <svg class="w-6 h-6 text-green-500 mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                                </svg>
+                                <span>Free SSL Certificate</span>
+                            </li>
+                            <li class="flex items-start">
+                                <svg class="w-6 h-6 text-green-500 mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                                </svg>
+                                <span>Weekly Backups</span>
+                            </li>
+                        </ul>
+                        <button class="w-full bg-blue-600 text-white py-3 rounded-lg font-semibold hover:bg-blue-700 transition">Get Started</button>
+                    </div>
+
+                    <!-- Premium Plan (Featured) -->
+                    <div class="pricing-card bg-gradient-to-br from-blue-600 to-purple-600 rounded-2xl shadow-2xl p-8 text-white transform scale-105">
+                        <div class="text-center mb-6">
+                            <span class="bg-yellow-400 text-gray-900 px-3 py-1 rounded-full text-sm font-bold mb-4 inline-block">MOST POPULAR</span>
+                            <h3 class="text-2xl font-bold mb-2">Premium</h3>
+                            <p class="text-blue-100 mb-4">Best for professionals</p>
+                            <div class="mb-4">
+                                <span class="text-blue-200 line-through text-xl">$19.99</span>
+                                <div class="text-5xl font-bold">$4.99</div>
+                                <span class="text-blue-100">/month</span>
+                            </div>
+                            <span class="bg-yellow-400 text-gray-900 px-3 py-1 rounded-full text-sm font-semibold">Save 75%</span>
+                        </div>
+                        <ul class="space-y-4 mb-8">
+                            <li class="flex items-start">
+                                <svg class="w-6 h-6 text-yellow-400 mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                                </svg>
+                                <span>100 Websites</span>
+                            </li>
+                            <li class="flex items-start">
+                                <svg class="w-6 h-6 text-yellow-400 mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                                </svg>
+                                <span>100 GB SSD Storage</span>
+                            </li>
+                            <li class="flex items-start">
+                                <svg class="w-6 h-6 text-yellow-400 mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                                </svg>
+                                <span>Free SSL & Domain</span>
+                            </li>
+                            <li class="flex items-start">
+                                <svg class="w-6 h-6 text-yellow-400 mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                                </svg>
+                                <span>Daily Backups</span>
+                            </li>
+                            <li class="flex items-start">
+                                <svg class="w-6 h-6 text-yellow-400 mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                                </svg>
+                                <span>Free CDN</span>
+                            </li>
+                        </ul>
+                        <button class="w-full bg-white text-blue-600 py-3 rounded-lg font-semibold hover:bg-gray-100 transition">Get Started</button>
+                    </div>
+
+                    <!-- Business Plan -->
+                    <div class="pricing-card bg-white rounded-2xl shadow-xl p-8">
+                        <div class="text-center mb-6">
+                            <h3 class="text-2xl font-bold mb-2">Business</h3>
+                            <p class="text-gray-600 mb-4">For growing businesses</p>
+                            <div class="mb-4">
+                                <span class="text-gray-400 line-through text-xl">$29.99</span>
+                                <div class="text-5xl font-bold text-blue-600">$7.99</div>
+                                <span class="text-gray-600">/month</span>
+                            </div>
+                            <span class="bg-green-100 text-green-700 px-3 py-1 rounded-full text-sm font-semibold">Save 73%</span>
+                        </div>
+                        <ul class="space-y-4 mb-8">
+                            <li class="flex items-start">
+                                <svg class="w-6 h-6 text-green-500 mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                                </svg>
+                                <span>Unlimited Websites</span>
+                            </li>
+                            <li class="flex items-start">
+                                <svg class="w-6 h-6 text-green-500 mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                                </svg>
+                                <span>200 GB SSD Storage</span>
+                            </li>
+                            <li class="flex items-start">
+                                <svg class="w-6 h-6 text-green-500 mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                                </svg>
+                                <span>Free SSL & Domain</span>
+                            </li>
+                            <li class="flex items-start">
+                                <svg class="w-6 h-6 text-green-500 mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                                </svg>
+                                <span>Daily Backups + On-demand</span>
+                            </li>
+                            <li class="flex items-start">
+                                <svg class="w-6 h-6 text-green-500 mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                                </svg>
+                                <span>Free CDN & Email</span>
+                            </li>
+                            <li class="flex items-start">
+                                <svg class="w-6 h-6 text-green-500 mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                                </svg>
+                                <span>Priority Support</span>
+                            </li>
+                        </ul>
+                        <button class="w-full bg-blue-600 text-white py-3 rounded-lg font-semibold hover:bg-blue-700 transition">Get Started</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonials Section -->
+        <section class="py-20 fade-in">
+            <div class="container mx-auto px-4">
+                <h2 class="text-4xl font-bold text-center mb-4">What Our Customers Say</h2>
+                <p class="text-center text-gray-600 mb-12 text-lg">Join thousands of satisfied customers worldwide</p>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+                    <div class="bg-white p-8 rounded-xl shadow-lg">
+                        <div class="flex mb-4">
+                            <span class="text-yellow-500">★★★★★</span>
+                        </div>
+                        <p class="text-gray-700 mb-6">"Best hosting service I've ever used. Lightning fast and excellent support team that actually cares about their customers!"</p>
+                        <div class="flex items-center">
+                            <div class="w-12 h-12 bg-blue-500 rounded-full flex items-center justify-center text-white font-bold mr-3">JD</div>
+                            <div>
+                                <p class="font-semibold">John Doe</p>
+                                <p class="text-sm text-gray-600">Web Developer</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-white p-8 rounded-xl shadow-lg">
+                        <div class="flex mb-4">
+                            <span class="text-yellow-500">★★★★★</span>
+                        </div>
+                        <p class="text-gray-700 mb-6">"Migrated from another host and couldn't be happier. The speed improvement was immediate and noticeable!"</p>
+                        <div class="flex items-center">
+                            <div class="w-12 h-12 bg-purple-500 rounded-full flex items-center justify-center text-white font-bold mr-3">SA</div>
+                            <div>
+                                <p class="font-semibold">Sarah Anderson</p>
+                                <p class="text-sm text-gray-600">Business Owner</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-white p-8 rounded-xl shadow-lg">
+                        <div class="flex mb-4">
+                            <span class="text-yellow-500">★★★★★</span>
+                        </div>
+                        <p class="text-gray-700 mb-6">"Fantastic value for money. The features you get at this price point are unbeatable. Highly recommended!"</p>
+                        <div class="flex items-center">
+                            <div class="w-12 h-12 bg-green-500 rounded-full flex items-center justify-center text-white font-bold mr-3">MK</div>
+                            <div>
+                                <p class="font-semibold">Michael Kim</p>
+                                <p class="text-sm text-gray-600">Entrepreneur</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="py-20 bg-gradient-to-r from-blue-600 to-purple-600 text-white fade-in">
+            <div class="container mx-auto px-4 text-center">
+                <h2 class="text-4xl font-bold mb-6">Ready to Get Started?</h2>
+                <p class="text-xl mb-8 text-blue-100">Join over 2 million websites powered by Hostinger</p>
+                <button class="bg-white text-blue-600 px-8 py-4 rounded-lg font-bold text-lg hover:bg-gray-100 transition shadow-xl">Start Your Website Today</button>
+                <p class="mt-6 text-blue-100">No credit card required • 30-day money-back guarantee</p>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section class="py-20 fade-in" id="support">
+            <div class="container mx-auto px-4 max-w-4xl">
+                <h2 class="text-4xl font-bold text-center mb-4">Frequently Asked Questions</h2>
+                <p class="text-center text-gray-600 mb-12 text-lg">Got questions? We've got answers</p>
+                <div class="space-y-4">
+                    <div class="faq-item bg-white rounded-lg shadow-md overflow-hidden">
+                        <button class="faq-question w-full text-left p-6 font-semibold text-lg flex justify-between items-center hover:bg-gray-50 transition">
+                            What is web hosting?
+                            <svg class="w-6 h-6 transform transition-transform" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"/>
+                            </svg>
+                        </button>
+                        <div class="faq-answer px-6 pb-6 hidden">
+                            <p class="text-gray-700">Web hosting is a service that allows you to publish your website on the internet. When you purchase a hosting plan, you're renting space on a server where your website files are stored and made accessible to visitors worldwide.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item bg-white rounded-lg shadow-md overflow-hidden">
+                        <button class="faq-question w-full text-left p-6 font-semibold text-lg flex justify-between items-center hover:bg-gray-50 transition">
+                            How do I migrate my existing website?
+                            <svg class="w-6 h-6 transform transition-transform" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"/>
+                            </svg>
+                        </button>
+                        <div class="faq-answer px-6 pb-6 hidden">
+                            <p class="text-gray-700">We offer free website migration with all our plans. Our expert team will handle the entire migration process for you, ensuring your website is transferred smoothly with zero downtime.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item bg-white rounded-lg shadow-md overflow-hidden">
+                        <button class="faq-question w-full text-left p-6 font-semibold text-lg flex justify-between items-center hover:bg-gray-50 transition">
+                            What if I'm not satisfied with the service?
+                            <svg class="w-6 h-6 transform transition-transform" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"/>
+                            </svg>
+                        </button>
+                        <div class="faq-answer px-6 pb-6 hidden">
+                            <p class="text-gray-700">We offer a 30-day money-back guarantee on all our hosting plans. If you're not completely satisfied, you can request a full refund within the first 30 days, no questions asked.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item bg-white rounded-lg shadow-md overflow-hidden">
+                        <button class="faq-question w-full text-left p-6 font-semibold text-lg flex justify-between items-center hover:bg-gray-50 transition">
+                            Do you provide SSL certificates?
+                            <svg class="w-6 h-6 transform transition-transform" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"/>
+                            </svg>
+                        </button>
+                        <div class="faq-answer px-6 pb-6 hidden">
+                            <p class="text-gray-700">Yes! All our hosting plans include a free SSL certificate to secure your website and protect your visitors' data. SSL is essential for SEO and building trust with your audience.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Hostinger</h3>
+                    <p class="text-gray-400">Making web hosting accessible and affordable for everyone.</p>
+                </div>
+                <div>
+                    <h4 class="font-semibold mb-4">Hosting</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="#" class="hover:text-white transition">Web Hosting</a></li>
+                        <li><a href="#" class="hover:text-white transition">VPS Hosting</a></li>
+                        <li><a href="#" class="hover:text-white transition">WordPress Hosting</a></li>
+                        <li><a href="#" class="hover:text-white transition">Cloud Hosting</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-semibold mb-4">Company</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="#" class="hover:text-white transition">About Us</a></li>
+                        <li><a href="#" class="hover:text-white transition">Contact</a></li>
+                        <li><a href="#" class="hover:text-white transition">Careers</a></li>
+                        <li><a href="#" class="hover:text-white transition">Blog</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-semibold mb-4">Support</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="#" class="hover:text-white transition">Help Center</a></li>
+                        <li><a href="#" class="hover:text-white transition">Terms of Service</a></li>
+                        <li><a href="#" class="hover:text-white transition">Privacy Policy</a></li>
+                        <li><a href="#" class="hover:text-white transition">Sitemap</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 pt-6 text-center text-gray-500">
+                &copy; 2024 Hostinger. All rights reserved.
+            </div>
+        </div>
+    </footer>
+    <script>
+        document.querySelectorAll('.faq-question').forEach(button => {
+            button.addEventListener('click', () => {
+                const answer = button.nextElementSibling;
+                const icon = button.querySelector('svg');
+                if (answer.classList.contains('hidden')) {
+                    answer.classList.remove('hidden');
+                    icon.classList.add('rotate-180');
+                } else {
+                    answer.classList.add('hidden');
+                    icon.classList.remove('rotate-180');
+                }
+            });
+        });
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+        const faders = document.querySelectorAll('.fade-in');
+        const appearOptions = {
+            threshold: 0,
+            rootMargin: "0px 0px -100px 0px"
+        };
+        const appearOnScroll = new IntersectionObserver(function(entries, appearOnScroll) {
+            entries.forEach(entry => {
+                if (!entry.isIntersecting) {
+                    return;
+                } else {
+                    entry.target.classList.add('opacity-100', 'translate-y-0');
+                    appearOnScroll.unobserve(entry.target);
+                }
+            });
+        }, appearOptions);
+        faders.forEach(fader => {
+            fader.classList.add('opacity-0', 'translate-y-10', 'transition', 'duration-700', 'ease-out');
+            appearOnScroll.observe(fader);
+        });
+    </script>
+</body>
+</html>
